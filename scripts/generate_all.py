@@ -90,10 +90,6 @@ def make_page_html(title, desc, content, lang="en", curr_section=""):
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>{title}</title>
 <meta name="google-site-verification" content="2NcsQwj2HUewGrCxIgmFypya9srq2sfJCs5mt3-MrOk"><meta name="description" content="{desc}">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <link rel="stylesheet" href="{lp}/css/style.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-00QF60ZXLE"></script>
@@ -128,19 +124,6 @@ def make_page_html(title, desc, content, lang="en", curr_section=""):
 <p>&copy; 2026 Tiny Terra Spaces Guide &mdash; A fan site for Tiny Terra Spaces. Not affiliated with the game developers.</p>
 </div>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (document.querySelector('.hero')) {
-    try {
-      VANTA.CLOUDS({ el: '.hero', mouseControls: true, touchControls: true, gyroControls: false,
-        minHeight: 300, minWidth: 200, skyColor: 0x2d5a3d, cloudColor: 0xc4956a, cloudShadowColor: 0x5c3d1e,
-        sunColor: 0xf5efe6, sunGlareColor: 0xf5efe6, sunlightColor: 0xf5efe6, speed: 0.5
-      });
-    } catch(e) {}
-  }
-  if (typeof AOS !== 'undefined') { AOS.init({ duration: 600, once: true, offset: 80, easing: 'ease-out-cubic' }); }
-});
-</script>
 </body>
 </html>'''
 
@@ -156,7 +139,7 @@ def gen_homepage(lang="en"):
     lang_nav = "\n".join(lang_items)
     
     building_cards = "\n".join([
-        f'<div class="card" data-aos="fade-up"><h3><a href="{lp}/buildings/{s}-guide.html">{e} {n}</a></h3><p>{d}</p><a href="{lp}/buildings/{s}-guide.html" class="btn">Read Guide</a></div>'
+        f'<div class="card"><h3><a href="{lp}/buildings/{s}-guide.html">{e} {n}</a></h3><p>{d}</p><a href="{lp}/buildings/{s}-guide.html" class="btn">Read Guide</a></div>'
         for s, n, e, d in BUILDINGS
     ])
     
@@ -167,10 +150,6 @@ def gen_homepage(lang="en"):
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Tiny Terra Spaces Guide - Complete Building & Island Guides</title>
 <meta name="google-site-verification" content="2NcsQwj2HUewGrCxIgmFypya9srq2sfJCs5mt3-MrOk"><meta name="description" content="Complete Tiny Terra Spaces guide with building guides, island name generator, price calculator, tips and tricks for the cozy medieval builder game inspired by Scotland.">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <link rel="stylesheet" href="{lp}/css/style.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-00QF60ZXLE"></script>
@@ -216,7 +195,7 @@ def gen_homepage(lang="en"):
 <div class="wrap" style="padding-top:0">
 
 <div class="section">
-<h2 class="section-title" data-aos="fade-right"><span class="icon">🔧</span> Featured Tools</h2>
+<h2 class="section-title"><span class="icon">🔧</span> Featured Tools</h2>
 <div class="card-grid">
 <div class="card">
 <h3><a href="{lp}/tools/island-name-generator.html">Island Name Generator</a></h3>
@@ -232,28 +211,28 @@ def gen_homepage(lang="en"):
 </div>
 
 <div class="section">
-<h2 class="section-title" data-aos="fade-right"><span class="icon">🏗️</span> Building Guides</h2>
+<h2 class="section-title"><span class="icon">🏗️</span> Building Guides</h2>
 <div class="card-grid">
 {building_cards}
 </div>
 </div>
 
 <div class="section">
-<h2 class="section-title" data-aos="fade-right"><span class="icon">📊</span> Top Lists &amp; Comparisons</h2>
+<h2 class="section-title"><span class="icon">📊</span> Top Lists &amp; Comparisons</h2>
 <div class="card-grid">
-<div class="card" data-aos="fade-up"><h3><a href="{lp}/top-lists/top-10-best-buildings.html">Top 10 Best Buildings</a></h3><p>Discover which buildings offer the best value, aesthetics, and functionality for your island.</p></div>
-<div class="card" data-aos="fade-up"><h3><a href="{lp}/top-lists/5-best-island-layouts.html">5 Best Island Layouts</a></h3><p>Layout inspiration for beginners and advanced players. Find the perfect design for your island.</p></div>
-<div class="card" data-aos="fade-up"><h3><a href="{lp}/top-lists/best-cozy-games-like-tiny-terra-spaces.html">Best Cozy Games Like TTS</a></h3><p>Find similar cozy building games to enjoy while waiting for new Tiny Terra Spaces updates.</p></div>
+<div class="card"><h3><a href="{lp}/top-lists/top-10-best-buildings.html">Top 10 Best Buildings</a></h3><p>Discover which buildings offer the best value, aesthetics, and functionality for your island.</p></div>
+<div class="card"><h3><a href="{lp}/top-lists/5-best-island-layouts.html">5 Best Island Layouts</a></h3><p>Layout inspiration for beginners and advanced players. Find the perfect design for your island.</p></div>
+<div class="card"><h3><a href="{lp}/top-lists/best-cozy-games-like-tiny-terra-spaces.html">Best Cozy Games Like TTS</a></h3><p>Find similar cozy building games to enjoy while waiting for new Tiny Terra Spaces updates.</p></div>
 </div>
 </div>
 
 <div class="section">
-<h2 class="section-title" data-aos="fade-right"><span class="icon">📝</span> Quick Guides</h2>
+<h2 class="section-title"><span class="icon">📝</span> Quick Guides</h2>
 <div class="card-grid">
-<div class="card" data-aos="fade-up"><h3><a href="{lp}/guides/beginners-guide.html">Beginner&#39;s Guide</a></h3><p>Everything you need to know to start your cozy medieval island journey.</p></div>
-<div class="card" data-aos="fade-up"><h3><a href="{lp}/guides/mistakes-to-avoid.html">5 Mistakes to Avoid</a></h3><p>Common beginner pitfalls and how to avoid them for a smoother game experience.</p></div>
-<div class="card" data-aos="fade-up"><h3><a href="{lp}/guides/sandbox-mode-guide.html">Sandbox Mode Guide</a></h3><p>Learn the ins and outs of creative sandbox mode with unlimited resources.</p></div>
-<div class="card" data-aos="fade-up"><h3><a href="{lp}/guides/island-hop-mode-guide.html">Island Hop Mode Guide</a></h3><p>Master exploration and expansion in Island Hop mode.</p></div>
+<div class="card"><h3><a href="{lp}/guides/beginners-guide.html">Beginner&#39;s Guide</a></h3><p>Everything you need to know to start your cozy medieval island journey.</p></div>
+<div class="card"><h3><a href="{lp}/guides/mistakes-to-avoid.html">5 Mistakes to Avoid</a></h3><p>Common beginner pitfalls and how to avoid them for a smoother game experience.</p></div>
+<div class="card"><h3><a href="{lp}/guides/sandbox-mode-guide.html">Sandbox Mode Guide</a></h3><p>Learn the ins and outs of creative sandbox mode with unlimited resources.</p></div>
+<div class="card"><h3><a href="{lp}/guides/island-hop-mode-guide.html">Island Hop Mode Guide</a></h3><p>Master exploration and expansion in Island Hop mode.</p></div>
 </div>
 </div>
 
@@ -264,19 +243,6 @@ def gen_homepage(lang="en"):
 <p>&copy; 2026 Tiny Terra Spaces Guide &mdash; A fan site for Tiny Terra Spaces. Not affiliated with the game developers.</p>
 </div>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (document.querySelector('.hero')) {
-    try {
-      VANTA.CLOUDS({ el: '.hero', mouseControls: true, touchControls: true, gyroControls: false,
-        minHeight: 300, minWidth: 200, skyColor: 0x2d5a3d, cloudColor: 0xc4956a, cloudShadowColor: 0x5c3d1e,
-        sunColor: 0xf5efe6, sunGlareColor: 0xf5efe6, sunlightColor: 0xf5efe6, speed: 0.5
-      });
-    } catch(e) {}
-  }
-  if (typeof AOS !== 'undefined') { AOS.init({ duration: 600, once: true, offset: 80, easing: 'ease-out-cubic' }); }
-});
-</script>
 </body>
 </html>'''
     
@@ -491,7 +457,7 @@ def gen_section_indexes(lang="en"):
     ]
     for sec, title, desc in sections:
         if sec == "buildings":
-            cards = "\n".join([f'<div class="card" data-aos="fade-up"><h3><a href="{lp}/buildings/{s}-guide.html">{e} {n}</a></h3><p>{d}</p><a href="{lp}/buildings/{s}-guide.html" class="btn">Read Guide</a></div>' for s, n, e, d in BUILDINGS])
+            cards = "\n".join([f'<div class="card"><h3><a href="{lp}/buildings/{s}-guide.html">{e} {n}</a></h3><p>{d}</p><a href="{lp}/buildings/{s}-guide.html" class="btn">Read Guide</a></div>' for s, n, e, d in BUILDINGS])
             content = f'<div class="breadcrumb"><a href="{lp}/">Home</a> &rsaquo; {title}</div><h1>{title}</h1><p>{desc}</p><div class="card-grid">{cards}</div>'
         else:
             content = f'<div class="breadcrumb"><a href="{lp}/">Home</a> &rsaquo; {title}</div><h1>{title}</h1><p>{desc}</p>'
@@ -547,7 +513,6 @@ print("\n=== Generating Sitemap ===")
 gen_sitemap()
 
 print("\n=== ALL DONE! ===")
-
 
 
 
