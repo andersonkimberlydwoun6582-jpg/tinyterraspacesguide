@@ -441,11 +441,12 @@ def gen_section_indexes(lang="en"):
         ("top-lists", "Top Lists & Rankings", "Curated rankings and comparisons for Tiny Terra Spaces players. Find the best buildings, layouts, and similar games."),
         ("tools", "Useful Tools", "Interactive tools to enhance your Tiny Terra Spaces experience. Island name generator and building price calculator."),
     ]
-    if sec == "buildings":
-        cards = "\n".join([f'<div class="card"><h3><a href="{lp}/buildings/{s}-guide.html">{e} {n}</a></h3><p>{d}</p><a href="{lp}/buildings/{s}-guide.html" class="btn">Read Guide</a></div>' for s, n, e, d in BUILDINGS])
-        content = f'<div class="breadcrumb"><a href="{lp}/">Home</a> &rsaquo; {title}</div><h1>{title}</h1><p>{desc}</p><div class="card-grid">{cards}</div>'
-    else:
-        content = f'<div class="breadcrumb"><a href="{lp}/">Home</a> &rsaquo; {title}</div><h1>{title}</h1><p>{desc}</p>'
+    for sec, title, desc in sections:
+        if sec == "buildings":
+            cards = "\n".join([f'<div class="card"><h3><a href="{lp}/buildings/{s}-guide.html">{e} {n}</a></h3><p>{d}</p><a href="{lp}/buildings/{s}-guide.html" class="btn">Read Guide</a></div>' for s, n, e, d in BUILDINGS])
+            content = f'<div class="breadcrumb"><a href="{lp}/">Home</a> &rsaquo; {title}</div><h1>{title}</h1><p>{desc}</p><div class="card-grid">{cards}</div>'
+        else:
+            content = f'<div class="breadcrumb"><a href="{lp}/">Home</a> &rsaquo; {title}</div><h1>{title}</h1><p>{desc}</p>'
         html = make_page_html(f"{title} | Tiny Terra Spaces Guide", desc, content, lang, f"/{sec}/")
         fp = lang_path(lang, f"{sec}/index.html")
         os.makedirs(os.path.dirname(fp), exist_ok=True)
