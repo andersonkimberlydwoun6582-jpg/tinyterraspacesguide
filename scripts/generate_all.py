@@ -75,7 +75,7 @@ def make_page_html(title, desc, content, lang="en", curr_section=""):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>{title}</title>
-<meta name="description" content="{desc}">
+<meta name="google-site-verification" content="2NcsQwj2HUewGrCxIgmFypya9srq2sfJCs5mt3-MrOk"><meta name="description" content="{desc}">
 <link rel="stylesheet" href="{lp}/css/style.css">
 </head>
 <body>
@@ -127,7 +127,7 @@ def gen_homepage(lang="en"):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Tiny Terra Spaces Guide - Complete Building & Island Guides</title>
-<meta name="description" content="Complete Tiny Terra Spaces guide with building guides, island name generator, price calculator, tips and tricks for the cozy medieval builder game inspired by Scotland.">
+<meta name="google-site-verification" content="2NcsQwj2HUewGrCxIgmFypya9srq2sfJCs5mt3-MrOk"><meta name="description" content="Complete Tiny Terra Spaces guide with building guides, island name generator, price calculator, tips and tricks for the cozy medieval builder game inspired by Scotland.">
 <link rel="stylesheet" href="{lp}/css/style.css">
 </head>
 <body>
@@ -479,3 +479,4 @@ print("\n=== Generating Sitemap ===")
 gen_sitemap()
 
 print("\n=== ALL DONE! ===")
+
