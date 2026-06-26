@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Island Name Generator - Tiny Terra Spaces Guide</title>
+<meta name="description" content="Generate unique and creative medieval island names for Tiny Terra Spaces. Scottish, mystical, cozy, and grand name styles.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+<div class="header-inner">
+<a href="/" class="logo">Tiny Terra Spaces Guide</a>
+<div class="lang-nav">
+<a href="/" class="curr">English</a>
+<a href="/de/">Deutsch</a>
+<a href="/pt/">Portugu&ecirc;s</a>
+<a href="/fr/">Fran&ccedil;ais</a>
+<a href="/ja/">日本語</a>
+<a href="/hi/">हिन्दी</a>
+</div>
+</div>
+<nav class="main-nav">
+<div class="main-nav-inner">
+<a href="/">Home</a>
+<a href="/buildings/">Buildings</a>
+<a href="/islands/">Islands</a>
+<a href="/guides/">Guides</a>
+<a href="/top-lists/">Top Lists</a>
+<a href="/tools/" class="curr">Tools</a>
+</div>
+</nav>
+</header>
+<main>
+<div class="wrap">
+<div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; Island Name Generator</div>
+<div class="tool-box">
+<h1>Tiny Terra Spaces Island Name Generator</h1>
+<p>Generate unique and creative names for your medieval islands. Choose a style below and click generate!</p>
+
+<label for="styleSelect">Name Style</label>
+<select id="styleSelect">
+<option value="scottish">Scottish Highlands</option>
+<option value="mystical">Mystical &amp; Enchanted</option>
+<option value="cozy">Cozy &amp; Warm</option>
+<option value="grand">Grand &amp; Majestic</option>
+<option value="nature">Nature &amp; Forest</option>
+</select>
+
+<label for="countSelect">Number of Names</label>
+<select id="countSelect">
+<option value="1">1 Name</option>
+<option value="3" selected>3 Names</option>
+<option value="5">5 Names</option>
+<option value="10">10 Names</option>
+</select>
+
+<button class="btn btn-tool" onclick="generateNames()">Generate Island Names</button>
+
+<div class="tool-output" id="output">
+<p class="result-name">Click Generate to create island names!</p>
+</div>
+</div>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<p>&copy; 2026 Tiny Terra Spaces Guide &mdash; A fan site for Tiny Terra Spaces</p>
+</div>
+</footer>
+<script>
+const NAMES = {
+  scottish: {
+    prefix: ['Glen', 'Loch', 'Ben', 'Brae', 'Inver', 'Kil', 'Strath', 'Dun', 'Craig', 'Tigh', 'Auch', 'Dal', 'Cairn', 'Tor', 'Cul'],
+    mid: ['mor', 'dhu', 'beg', 'more', 'vreck', 'rie', 'ross', 'gor', 'fyn', 'nish', 'bhan', 'glas', 'drum', 'ard', 'croy'],
+    suffix: ['Isle', 'Bay', 'Heights', 'Shore', 'Vale', 'Rock', 'Moor', 'Glen', 'Firth', 'Craig', 'Meadow', 'Haven', 'Ridge', 'Wood', 'Cove']
+  },
+  mystical: {
+    prefix: ['Star', 'Moon', 'Fae', 'Mist', 'Elf', 'Dragon', 'Phoenix', 'Enchanted', 'Crystal', 'Shadow', 'Spirit', 'Rune', 'Mystic', 'Celestial', 'Ethereal'],
+    mid: ['fall', 'wind', 'thorn', 'light', 'stone', 'fire', 'wood', 'gate', 'song', 'crest', 'bloom', 'dust', 'shine', 'flame', 'whisper'],
+    suffix: ['Isle', 'Reach', 'Sanctuary', 'Haven', 'Realm', 'Grove', 'Peak', 'Vale', 'Domain', 'Refuge', 'Expanse', 'Hollow', 'Pine', 'Glade', 'Crossing']
+  },
+  cozy: {
+    prefix: ['Cozy', 'Warm', 'Snug', 'Gentle', 'Peaceful', 'Quiet', 'Soft', 'Golden', 'Sunny', 'Tranquil', 'Sweet', 'Happy', 'Lazy', 'Calm', 'Little'],
+    mid: ['brook', 'meadow', 'field', 'nest', 'hearth', 'cottage', 'hollow', 'willow', 'hazel', 'berry', 'blossom', 'dove', 'lark', 'acorn', 'thistle'],
+    suffix: ['Nook', 'Corner', 'Croft', 'Patch', 'Burrow', 'Dell', 'Glen', 'Cottage', 'Ridge', 'Rest', 'Bend', 'Pond', 'Gate', 'Hill', 'Haven']
+  },
+  grand: {
+    prefix: ['Royal', 'Imperial', 'Majestic', 'Grand', 'Noble', 'Great', 'High', 'Sovereign', 'Crown', 'Golden', 'Throne', 'King\'s', 'Queen\'s', 'Lord\'s', 'Regal'],
+    mid: ['stone', 'helm', 'shield', 'fort', 'keep', 'thorn', 'vale', 'wall', 'crown', 'peak', 'gate', 'tower', 'branch', 'iron', 'silver'],
+    suffix: ['Citadel', 'Fortress', 'Castle', 'Keep', 'Palace', 'Throne', 'Domain', 'Summit', 'Empire', 'Kingdom', 'Hold', 'Spire', 'Cathedral', 'Tower', 'Hall']
+  },
+  nature: {
+    prefix: ['Green', 'Wild', 'Forest', 'Fern', 'Oak', 'Pine', 'Maple', 'Birch', 'Hawthorn', 'Ivy', 'Rose', 'Lily', 'Thistle', 'Heather', 'Moss'],
+    mid: ['wood', 'leaf', 'bough', 'root', 'bark', 'grove', 'fern', 'moss', 'thorn', 'vine', 'bloom', 'branch', 'meadow', 'stream', 'hill'],
+    suffix: ['Woods', 'Forest', 'Grove', 'Thicket', 'Wilds', 'Verdant', 'Green', 'Copse', 'Glade', 'Shire', 'Fen', 'Shaw', 'Wold', 'Weald', 'Meadow']
+  }
+};
+
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function generateName(style) {
+  var dict = NAMES[style] || NAMES.scottish;
+  var fmt = Math.floor(Math.random() * 3);
+  if (fmt === 0) return pick(dict.prefix) + pick(dict.mid) + ' ' + pick(dict.suffix);
+  if (fmt === 1) return pick(dict.prefix) + pick(dict.suffix);
+  if (fmt === 2) return 'The ' + pick(dict.prefix) + ' ' + pick(dict.suffix);
+  return pick(dict.prefix) + pick(dict.mid) + ' ' + pick(dict.suffix);
+}
+
+function generateNames() {
+  var style = document.getElementById('styleSelect').value;
+  var count = parseInt(document.getElementById('countSelect').value);
+  var out = document.getElementById('output');
+  var names = [];
+  for (var i = 0; i < count; i++) {
+    names.push('<p class="result-name">' + generateName(style) + '</p>');
+  }
+  out.innerHTML = names.join('');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Building Price Calculator - Tiny Terra Spaces Guide</title>
+<meta name="description" content="Calculate building material costs in Tiny Terra Spaces. Plan your medieval island builds efficiently with our price calculator.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+<div class="header-inner">
+<a href="/" class="logo">Tiny Terra Spaces Guide</a>
+<div class="lang-nav">
+<a href="/" class="curr">English</a>
+<a href="/de/">Deutsch</a>
+<a href="/pt/">Portugu&ecirc;s</a>
+<a href="/fr/">Fran&ccedil;ais</a>
+<a href="/ja/">日本語</a>
+<a href="/hi/">हिन्दी</a>
+</div>
+</div>
+<nav class="main-nav">
+<div class="main-nav-inner">
+<a href="/">Home</a>
+<a href="/buildings/">Buildings</a>
+<a href="/islands/">Islands</a>
+<a href="/guides/">Guides</a>
+<a href="/top-lists/">Top Lists</a>
+<a href="/tools/" class="curr">Tools</a>
+</div>
+</nav>
+</header>
+<main>
+<div class="wrap">
+<div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; Building Price Calculator</div>
+<div class="tool-box">
+<h1>Tiny Terra Spaces Building Price Calculator</h1>
+<p>Plan your builds! Select a building and size to estimate the materials needed.</p>
+
+<label for="buildingSelect">Building Type</label>
+<select id="buildingSelect">
+<option value="castle">Castle</option>
+<option value="farmhouse" selected>Farmhouse</option>
+<option value="church">Church</option>
+<option value="workshop">Workshop</option>
+<option value="mill">Mill</option>
+<option value="dock">Dock</option>
+<option value="tavern">Tavern</option>
+<option value="watchtower">Watchtower</option>
+<option value="blacksmith">Blacksmith</option>
+<option value="market">Market</option>
+<option value="library">Library</option>
+<option value="garden">Garden</option>
+<option value="bakery">Bakery</option>
+<option value="chapel">Chapel</option>
+<option value="cottage">Cottage</option>
+</select>
+
+<label for="sizeSelect">Building Size</label>
+<select id="sizeSelect">
+<option value="small">Small</option>
+<option value="medium" selected>Medium</option>
+<option value="large">Large</option>
+</select>
+
+<button class="btn btn-tool" onclick="calculatePrice()">Calculate Cost</button>
+
+<div class="tool-output" id="output">
+<div class="result-name">Select a building and click Calculate</div>
+</div>
+</div>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<p>&copy; 2026 Tiny Terra Spaces Guide &mdash; A fan site for Tiny Terra Spaces</p>
+</div>
+</footer>
+<script>
+var BASE_COSTS = {
+  castle:    { wood: 120, stone: 200, gold: 50,  iron: 30,  time: 180 },
+  farmhouse: { wood: 80,  stone: 40,  gold: 10,  iron: 5,   time: 60  },
+  church:    { wood: 60,  stone: 160, gold: 40,  iron: 15,  time: 120 },
+  workshop:  { wood: 90,  stone: 50,  gold: 15,  iron: 20,  time: 70  },
+  mill:      { wood: 100, stone: 70,  gold: 20,  iron: 10,  time: 80  },
+  dock:      { wood: 110, stone: 60,  gold: 15,  iron: 15,  time: 75  },
+  tavern:    { wood: 85,  stone: 55,  gold: 25,  iron: 5,   time: 65  },
+  watchtower:{ wood: 40,  stone: 100, gold: 20,  iron: 25,  time: 90  },
+  blacksmith:{ wood: 50,  stone: 80,  gold: 30,  iron: 40,  time: 85  },
+  market:    { wood: 95,  stone: 45,  gold: 35,  iron: 10,  time: 60  },
+  library:   { wood: 70,  stone: 90,  gold: 45,  iron: 5,   time: 100 },
+  garden:    { wood: 30,  stone: 20,  gold: 5,   iron: 0,   time: 30  },
+  bakery:    { wood: 60,  stone: 40,  gold: 15,  iron: 5,   time: 50  },
+  chapel:    { wood: 35,  stone: 80,  gold: 25,  iron: 5,   time: 70  },
+  cottage:   { wood: 65,  stone: 30,  gold: 8,   iron: 3,   time: 40  }
+};
+
+var SIZE_MULT = { small: 0.6, medium: 1.0, large: 1.6 };
+
+function calculatePrice() {
+  var bld = document.getElementById('buildingSelect').value;
+  var size = document.getElementById('sizeSelect').value;
+  var base = BASE_COSTS[bld];
+  var mult = SIZE_MULT[size];
+  
+  var costs = {};
+  var total = 0;
+  for (var k in base) {
+    costs[k] = Math.round(base[k] * mult);
+  }
+  
+  var labels = { wood: 'Wood', stone: 'Stone', gold: 'Gold Coins', iron: 'Iron', time: 'Build Time' };
+  var units = { wood: 'logs', stone: 'blocks', gold: 'coins', iron: 'bars', time: 'min' };
+  
+  var html = '<table style=\"width:100%;text-align:left;font-size:1rem;\">';
+  html += '<tr><th style=\"padding:8px;border-bottom:2px solid var(--cream-dark);\">Resource</th><th style=\"padding:8px;border-bottom:2px solid var(--cream-dark);\">Amount</th></tr>';
+  for (var k in costs) {
+    if (k === 'time') {
+      html += '<tr><td style=\"padding:6px 8px;\">' + labels[k] + '</td><td style=\"padding:6px 8px;\">' + costs[k] + ' ' + units[k] + '</td></tr>';
+    } else {
+      html += '<tr><td style=\"padding:6px 8px;\">' + labels[k] + '</td><td style=\"padding:6px 8px;\">' + costs[k] + ' ' + units[k] + '</td></tr>';
+    }
+  }
+  html += '</table>';
+  html += '<p style=\"margin-top:16px;font-size:0.9rem;color:var(--text-light);\">* Estimated values based on game data. Actual costs may vary.</p>';
+  
+  document.getElementById('output').innerHTML = html;
+}
+</script>
+</body>
+</html>
