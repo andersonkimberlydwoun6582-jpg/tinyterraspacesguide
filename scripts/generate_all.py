@@ -77,6 +77,14 @@ def make_page_html(title, desc, content, lang="en", curr_section=""):
 <title>{title}</title>
 <meta name="google-site-verification" content="2NcsQwj2HUewGrCxIgmFypya9srq2sfJCs5mt3-MrOk"><meta name="description" content="{desc}">
 <link rel="stylesheet" href="{lp}/css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXX');
+</script>
 </head>
 <body>
 <header>
@@ -129,6 +137,14 @@ def gen_homepage(lang="en"):
 <title>Tiny Terra Spaces Guide - Complete Building & Island Guides</title>
 <meta name="google-site-verification" content="2NcsQwj2HUewGrCxIgmFypya9srq2sfJCs5mt3-MrOk"><meta name="description" content="Complete Tiny Terra Spaces guide with building guides, island name generator, price calculator, tips and tricks for the cozy medieval builder game inspired by Scotland.">
 <link rel="stylesheet" href="{lp}/css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXX');
+</script>
 </head>
 <body>
 <header>
@@ -479,4 +495,5 @@ print("\n=== Generating Sitemap ===")
 gen_sitemap()
 
 print("\n=== ALL DONE! ===")
+
 
