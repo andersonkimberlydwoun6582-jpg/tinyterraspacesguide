@@ -1,4 +1,4 @@
-﻿import os, json, urllib.request, base64
+import os, json, urllib.request, base64
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

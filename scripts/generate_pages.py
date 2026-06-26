@@ -1,4 +1,4 @@
-﻿# Tiny Terra Spaces Guide - Static Site Generator
+# Tiny Terra Spaces Guide - Static Site Generator
 # Generates building guides, island guides, list pages, and multi-language stubs
 
 import os, html

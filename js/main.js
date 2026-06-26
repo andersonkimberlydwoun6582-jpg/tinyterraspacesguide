@@ -1,4 +1,4 @@
-﻿// Tiny Terra Spaces Guide - Shared JavaScript
+// Tiny Terra Spaces Guide - Shared JavaScript
 
 // Generate sitemap-like navigation highlighting
 document.addEventListener('DOMContentLoaded', function() {

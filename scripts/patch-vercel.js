@@ -1,4 +1,4 @@
-﻿// Patch os.hostname() to use ASCII for Vercel CLI
+// Patch os.hostname() to use ASCII for Vercel CLI
 const os = require('os');
 const originalHostname = os.hostname;
 os.hostname = () => 'ttsguide-pc';

@@ -1,4 +1,4 @@
-﻿const Module = require('module');
+const Module = require('module');
 const originalLoad = Module._load;
 
 // Patch os module before anything else uses it
