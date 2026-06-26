@@ -43,6 +43,20 @@ def lang_path(lang, filepath):
     else:
         return os.path.join(BASE, LANG_DIR[lang], filepath)
 
+AD_INLINE = '''<div class="ad-container ad-inline">
+<div class="ad-label">Sponsored</div>
+<script>
+atOptions = {'key' : '630fe911d53a80ce8c879fce7ab47d5a','format' : 'iframe','height' : 300,'width' : 160,'params' : {}};
+</script>
+<script src="https://www.highperformanceformat.com/630fe911d53a80ce8c879fce7ab47d5a/invoke.js"></script>
+</div>'''
+AD_BANNER = '''<div class="ad-container ad-banner">
+<div class="ad-label">Sponsored</div>
+<script>
+atOptions = {'key' : '630fe911d53a80ce8c879fce7ab47d5a','format' : 'iframe','height' : 300,'width' : 160,'params' : {}};
+</script>
+<script src="https://www.highperformanceformat.com/630fe911d53a80ce8c879fce7ab47d5a/invoke.js"></script>
+</div>'''
 def make_page_html(title, desc, content, lang="en", curr_section=""):
     lp = lang_prefix(lang)
     ln = LANG_NAMES
@@ -85,7 +99,7 @@ def make_page_html(title, desc, content, lang="en", curr_section=""):
   gtag('js', new Date());
   gtag('config', 'G-00QF60ZXLE');
 </script>
-</head>
+<script src="https://pl29904082.effectivecpmnetwork.com/b7/d4/da/b7d4da7b9f27494e622681d58d347a46.js"></script></head>
 <body>
 <header>
 <div class="header-inner">
@@ -145,7 +159,7 @@ def gen_homepage(lang="en"):
   gtag('js', new Date());
   gtag('config', 'G-00QF60ZXLE');
 </script>
-</head>
+<script src="https://pl29904082.effectivecpmnetwork.com/b7/d4/da/b7d4da7b9f27494e622681d58d347a46.js"></script></head>
 <body>
 <header>
 <div class="header-inner">
@@ -499,6 +513,7 @@ print("\n=== Generating Sitemap ===")
 gen_sitemap()
 
 print("\n=== ALL DONE! ===")
+
 
 
 

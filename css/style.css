@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --green: #2d5a3d; --green-light: #4a8c5c; --green-muted: #6b9f7a;
   --brown: #8b6f47; --brown-light: #c4956a; --brown-dark: #5c3d1e;
   --cream: #f7f2eb; --cream-dark: #ece3d6;
@@ -86,3 +86,10 @@ a:hover{color:var(--green-light)}
   .hero-content p{font-size:.95rem}
   .main-nav a{padding:8px 10px;font-size:.8rem}
 }
+
+/* ===== Ad Placements ===== */
+.ad-container { margin: 24px auto; text-align: center; overflow: hidden; border-radius: var(--radius); background: var(--cream); padding: 12px; }
+.ad-inline { float: right; margin: 0 0 16px 20px; max-width: 170px; }
+.ad-banner { display: block; clear: both; }
+.ad-label { font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+@media (max-width: 640px) { .ad-inline { float: none; margin: 20px auto; } }
